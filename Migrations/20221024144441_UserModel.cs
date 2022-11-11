@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace rpg_api.Migrations
+namespace signature.Migrations
 {
     public partial class UserModel : Migration
     {

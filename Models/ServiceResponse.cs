@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace rpg_api.Models
+namespace signature.Models
 {
     public class ServiceResponse<T>
     {

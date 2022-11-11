@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using rpg_api.Data;
+using signature.Data;
 
 #nullable disable
 
-namespace rpg_api.Migrations
+namespace signature.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20221027183252_Weapon")]
@@ -24,7 +24,7 @@ namespace rpg_api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace rpg_api.Migrations
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.User", b =>
+            modelBuilder.Entity("signature.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +86,7 @@ namespace rpg_api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Weapon", b =>
+            modelBuilder.Entity("signature.Models.Weapon", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -112,9 +112,9 @@ namespace rpg_api.Migrations
                     b.ToTable("Weapons");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
-                    b.HasOne("rpg_api.Models.User", "User")
+                    b.HasOne("signature.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -123,18 +123,18 @@ namespace rpg_api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Weapon", b =>
+            modelBuilder.Entity("signature.Models.Weapon", b =>
                 {
-                    b.HasOne("rpg_api.Models.Character", "Character")
+                    b.HasOne("signature.Models.Character", "Character")
                         .WithOne("Weapon")
-                        .HasForeignKey("rpg_api.Models.Weapon", "CharacterId")
+                        .HasForeignKey("signature.Models.Weapon", "CharacterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Character");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
                     b.Navigation("Weapon");
                 });

@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using rpg_api.Data;
+using signature.Data;
 
 #nullable disable
 
-namespace rpg_api.Migrations
+namespace signature.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20221028135537_Skill")]
@@ -39,7 +39,7 @@ namespace rpg_api.Migrations
                     b.ToTable("CharacterSkill");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace rpg_api.Migrations
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Skill", b =>
+            modelBuilder.Entity("signature.Models.Skill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,7 +96,7 @@ namespace rpg_api.Migrations
                     b.ToTable("Skills");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.User", b =>
+            modelBuilder.Entity("signature.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,7 +121,7 @@ namespace rpg_api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Weapon", b =>
+            modelBuilder.Entity("signature.Models.Weapon", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -149,22 +149,22 @@ namespace rpg_api.Migrations
 
             modelBuilder.Entity("CharacterSkill", b =>
                 {
-                    b.HasOne("rpg_api.Models.Character", null)
+                    b.HasOne("signature.Models.Character", null)
                         .WithMany()
                         .HasForeignKey("CharactersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("rpg_api.Models.Skill", null)
+                    b.HasOne("signature.Models.Skill", null)
                         .WithMany()
                         .HasForeignKey("SkillsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
-                    b.HasOne("rpg_api.Models.User", "User")
+                    b.HasOne("signature.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -173,18 +173,18 @@ namespace rpg_api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Weapon", b =>
+            modelBuilder.Entity("signature.Models.Weapon", b =>
                 {
-                    b.HasOne("rpg_api.Models.Character", "Character")
+                    b.HasOne("signature.Models.Character", "Character")
                         .WithOne("Weapon")
-                        .HasForeignKey("rpg_api.Models.Weapon", "CharacterId")
+                        .HasForeignKey("signature.Models.Weapon", "CharacterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Character");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
                     b.Navigation("Weapon");
                 });

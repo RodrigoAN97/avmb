@@ -1,13 +1,10 @@
-global using rpg_api.Models;
+global using signature.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using rpg_api.Data;
-using rpg_api.Services.CharacterService;
-using rpg_api.Services.FightService;
-using rpg_api.Services.GlobalService;
-using rpg_api.Services.WeaponService;
+using signature.Data;
+using signature.Services.EnvelopeService;
 using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,11 +27,7 @@ builder.Services.AddSwaggerGen(c => {
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddScoped<ICharacterService, CharacterService>();
-builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-builder.Services.AddScoped<IGlobalService, GlobalService>();
-builder.Services.AddScoped<IWeaponService, WeaponService>();
-builder.Services.AddScoped<IFightService, FightService>();
+builder.Services.AddScoped<IEnvelopeService, EnvelopeService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options => {
         options.TokenValidationParameters = new TokenValidationParameters

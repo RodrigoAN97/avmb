@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace rpg_api.Migrations
+namespace signature.Migrations
 {
     public partial class UserCharacterRelationship : Migration
     {

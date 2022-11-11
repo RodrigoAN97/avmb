@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using rpg_api.Data;
+using signature.Data;
 
 #nullable disable
 
-namespace rpg_api.Migrations
+namespace signature.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20221024144441_UserModel")]
@@ -24,7 +24,7 @@ namespace rpg_api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("rpg_api.Models.Character", b =>
+            modelBuilder.Entity("signature.Models.Character", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace rpg_api.Migrations
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("rpg_api.Models.User", b =>
+            modelBuilder.Entity("signature.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
