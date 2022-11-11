@@ -32,5 +32,12 @@ namespace signature.Controllers
             var response = await _envelopeService.GetDadosEnvelope(dados);
             return Ok(response);
         }
+
+        [HttpPost("DownloadPdfEnvelope")]
+        public async Task<ActionResult<HttpResponseMessage>> DownloadPdfEnvelope(DownloadPdfEnvelopeDto dados)
+        {
+            var response = await _envelopeService.DownloadPDFEnvelope(dados);
+            return Ok(response);
+        }
     }
 }

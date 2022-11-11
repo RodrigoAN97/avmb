@@ -10,5 +10,6 @@ namespace signature.Services.EnvelopeService
     {
         Task<object?> InserirEnvelope(InserirEnvelopeDto novoEnvelope);
         Task<object?> GetDadosEnvelope(GetDadosEnvelopeDto dados);
+        Task<object?> DownloadPDFEnvelope(DownloadPdfEnvelopeDto dados);
     }
 }
