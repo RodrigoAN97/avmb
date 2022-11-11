@@ -120,7 +120,7 @@ namespace signature.Models
         public string emailObservador { get; set; } = string.Empty;
     }
 
-    public class Params
+    public class EnvelopeParams
     {
         public Envelope Envelope { get; set; } = new Envelope();
         public string gerarTags { get; set; } = "S";

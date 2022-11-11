@@ -8,6 +8,6 @@ namespace signature.Dtos.Envelope
     public class InserirEnvelopeDto
     {
         public string token { get; set; } = string.Empty;
-        public Params @params { get; set; } = new Params();
+        public EnvelopeParams @params { get; set; } = new EnvelopeParams();
     }
 }
