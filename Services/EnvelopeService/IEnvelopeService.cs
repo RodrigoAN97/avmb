@@ -9,5 +9,6 @@ namespace signature.Services.EnvelopeService
     public interface IEnvelopeService
     {
         Task<object?> InserirEnvelope(InserirEnvelopeDto novoEnvelope);
+        Task<object?> GetDadosEnvelope(GetDadosEnvelopeDto dados);
     }
 }

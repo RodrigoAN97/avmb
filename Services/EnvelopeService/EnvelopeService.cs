@@ -16,6 +16,15 @@ namespace signature.Services.EnvelopeService
 
         static HttpClient client = new HttpClient();
 
+        public async Task<object?> GetDadosEnvelope(GetDadosEnvelopeDto dados)
+        {
+            var endpoint = new Uri("https://plataforma.astenassinatura.com.br/api/getDadosEnvelope");
+            var newPostJson = JsonConvert.SerializeObject(dados);
+            var payload = new StringContent(newPostJson, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(endpoint, payload).Result.Content.ReadAsStreamAsync();
+            return response;
+        }
+
         public async Task<object?> InserirEnvelope(InserirEnvelopeDto novoEnvelope)
         {
             var endpoint = new Uri("https://plataforma.astenassinatura.com.br/api/inserirEnvelope");

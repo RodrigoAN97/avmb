@@ -25,5 +25,12 @@ namespace signature.Controllers
             var response = await _envelopeService.InserirEnvelope(novoEnvelope);
             return Ok(response);
         }
+
+        [HttpPost("GetDadosEnvelope")]
+        public async Task<ActionResult<HttpResponseMessage>> GetDadosEnvelope(GetDadosEnvelopeDto dados)
+        {
+            var response = await _envelopeService.GetDadosEnvelope(dados);
+            return Ok(response);
+        }
     }
 }
