@@ -18,7 +18,6 @@ namespace signature.Services.EnvelopeService
 
         public async Task<object?> InserirEnvelope(InserirEnvelopeDto novoEnvelope)
         {
-            var serviceResponse = new ServiceResponse<string>();
             var endpoint = new Uri("https://plataforma.astenassinatura.com.br/api/inserirEnvelope");
             var newPostJson = JsonConvert.SerializeObject(novoEnvelope);
             var payload = new StringContent(newPostJson, Encoding.UTF8, "application/json");
